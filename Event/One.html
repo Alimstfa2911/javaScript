@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <h2>Amazing Images</h2>
+    <div>
+        <ul>
+            <li>
+                <img width="200px"   src="https://www.pexels.com/photo/view-t-b-o-tang-d-ng-dinh-da-n-ng-20434627/" alt="" >
+                
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    //document.getElementById('owl').onclick=function(){
+      //  alert("owl clicked")
+    //}
+
+    //document.getElementById('owl').addEventListener('click',function(){
+      //  alert("owl clicked again")
+    //})
+
+    //attachEvent()
+    //jQuery - on 
+
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log(e)
+    },false)
+
+    //type , timestamp , defaultPrevented 
+    //target , toElement , srcElement , currentTarget,
+    //clientX, clientY ,screenX , screenY
+    //altkey , ctrlkey, shiftkey , keyCode
+
+    //EventPropogation
+    document.getElementById('owl').addEventListener(
+        'click',function(e){
+            console.log("owl clicked");
+            e.stopPropagation()
+        },false)
+
+        document.getElementById('google').addEventListener
+        ('click',function(e){
+            console.log("google clicked")
+            e.preventDefault()
+        },false)
+
+        document.querySelector('#images').addEventListener
+        ('click',function(e){
+           // console.log(e.target.parentNode);
+           if(e.target.tagName=="IMG"){
+            console.log(e.target.id);
+            let removeIt = e.target.tagName
+            removeIt.remove()
+           }
+        })
+
+
+
+</script>
+</html>
